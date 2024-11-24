@@ -5,7 +5,7 @@ using UnityEngine;
 public class arrowScript : MonoBehaviour
 {
     public int damage = 10;
-    private normalEnemy enemyScript;
+    private Enemy enemyScript;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class arrowScript : MonoBehaviour
         if (collision.gameObject.CompareTag("NormalEnemy"))
         {
             // Get the EnemyScript attached to the enemy object
-            enemyScript = collision.gameObject.GetComponent<normalEnemy>();
+            enemyScript = collision.gameObject.GetComponent<Enemy>();
 
             if (enemyScript != null)
             {

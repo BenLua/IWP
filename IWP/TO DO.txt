@@ -1,0 +1,6 @@
+TO DO:
+1. Tower targeting: Make a list and add gameobjects in order, tower will always target the one at the top of the list, when exit range or die remove self frm list.
+
+
+new Unique idea:
+1. special enemies can attack towers, use tower spells to heal or boosts towers within range of spell

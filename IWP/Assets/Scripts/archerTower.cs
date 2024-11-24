@@ -10,6 +10,7 @@ public class archerTower : MonoBehaviour
     public LayerMask targetLayer;
     public GameObject arrowPrefab; 
     public float ShootingDelay;
+    public int shotSpeed = 1000;
 
     private bool canShoot = true;
 
@@ -73,7 +74,7 @@ public class archerTower : MonoBehaviour
             rb.freezeRotation = true;
 
             // Apply force to the Rigidbody in the direction of the nearest collider
-            rb.AddForce(direction * 10, ForceMode.VelocityChange);
+            rb.AddForce(direction * shotSpeed, ForceMode.VelocityChange);
         }
         else
         {
