@@ -2,8 +2,17 @@ TO DO:
 
 Heavy:
 special enemies can attack towers (put on hold)
-use tower spells to heal or boosts towers within range of spell;
+use tower spells to heal or boosts towers within range of spell:
+	boost spell
+	heal spell (do when enemy attacking is done)
+	fireball spell
+	slow spell
 
 Light:
 Tower targeting: Make a list and add gameobjects in order, tower will always target the one at the top of the list, when exit range or die remove self frm list.
 work on Game Graphics and map graphics.
+
+Make Sure shop UI scales properly even on different screen sizes
+
+
+============= remember to uncomment draw gizmos for enemy attack =================

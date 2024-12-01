@@ -10,7 +10,7 @@ public class archerTower : MonoBehaviour
     public LayerMask targetLayer;
     public GameObject arrowPrefab;
     public float ShootingDelay;
-    public int shotSpeed = 1000;
+    public int shotSpeed;
     public int towerHP = 100;
 
     private bool canShoot = true;
@@ -47,7 +47,7 @@ public class archerTower : MonoBehaviour
         }
         else
         {
-            Debug.Log("No objects within the sphere.");
+            //Debug.Log("No objects within the tower range.");
         }
     }
 

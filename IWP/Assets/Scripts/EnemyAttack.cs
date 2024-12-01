@@ -48,15 +48,15 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            Debug.Log("No objects within range of enemy");
+            //Debug.Log("No objects within range of enemy");
         }
     }
 
-    private void OnDrawGizmos()
+/*    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, EnemyRange);
-    }
+    }*/
 
     // Coroutine to shoot with a delay
     private IEnumerator ShootAtNearestWithDelay(Collider nearestEnemy)

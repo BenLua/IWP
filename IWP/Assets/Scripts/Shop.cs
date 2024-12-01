@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public TowerBluePrint archerTower;
+    public TowerBluePrint boostSpell;
 
     BuildManager buildManager;
 
@@ -23,5 +24,10 @@ public class Shop : MonoBehaviour
     public void SelectArcherTower()
     {
         buildManager.SetTowerToBuild(archerTower);
+    }
+
+    public void SelectBoostSpell()
+    {
+        buildManager.SetSpellToActivate(boostSpell);
     }
 }

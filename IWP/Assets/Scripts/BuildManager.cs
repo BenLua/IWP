@@ -46,4 +46,9 @@ public class BuildManager : MonoBehaviour
     {
         towerToBuild = tower;
     }
+
+    public void SetSpellToActivate(TowerBluePrint tower)
+    {
+        towerToBuild = tower;
+    }
 }
