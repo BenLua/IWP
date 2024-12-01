@@ -1,7 +1,8 @@
 TO DO:
 
 Heavy:
-special enemies can attack towers, use tower spells to heal or boosts towers within range of spell;
+special enemies can attack towers (put on hold)
+use tower spells to heal or boosts towers within range of spell;
 
 Light:
 Tower targeting: Make a list and add gameobjects in order, tower will always target the one at the top of the list, when exit range or die remove self frm list.
