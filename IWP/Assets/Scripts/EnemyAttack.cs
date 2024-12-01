@@ -6,15 +6,20 @@ public class EnemyAttack : MonoBehaviour
 {
     public float attackSpeed = 5f;
     public LayerMask targetLayer;
-    public int EnemyRange = 500;
+    public int EnemyRange = 10;
     public GameObject arrowPrefab;
     public bool canShoot;
+
+    private void Update()
+    {
+        checkShootAtTower();
+    }
 
     //draw sphere and do attack
     void checkShootAtTower()
     {
         // Perform the overlap check at the center of the sphere with the given radius
-        Collider[] collidersInRange = Physics.OverlapSphere(this.transform.position, EnemyRange, targetLayer);
+        Collider[] collidersInRange = Physics.OverlapSphere(transform.position, EnemyRange, targetLayer);
 
         Collider nearestCollider = null;
         float nearestDistance = EnemyRange + 20;
@@ -25,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
             foreach (Collider collider in collidersInRange)
             {
                 // Calculate distance of all the colliders in range
-                float distance = Vector3.Distance(this.transform.position, collider.transform.position);
+                float distance = Vector3.Distance(transform.position, collider.transform.position);
 
                 if (distance < nearestDistance)
                 {
@@ -43,8 +48,14 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            Debug.Log("No objects within the sphere.");
+            Debug.Log("No objects within range of enemy");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.transform.position, EnemyRange);
     }
 
     // Coroutine to shoot with a delay
