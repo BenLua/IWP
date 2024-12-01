@@ -3,7 +3,7 @@ TO DO:
 Heavy:
 special enemies can attack towers (put on hold)
 use tower spells to heal or boosts towers within range of spell:
-	boost spell
+	boost spell (done)
 	heal spell (do when enemy attacking is done)
 	fireball spell
 	slow spell
