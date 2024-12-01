@@ -6,6 +6,7 @@ public class arrowScript : MonoBehaviour
 {
     public int damage = 10;
     private Enemy enemyScript;
+    private archerTower archerTowerScript;
 
     private void Start()
     {
@@ -24,6 +25,22 @@ public class arrowScript : MonoBehaviour
             {
                 // Call the TakeDamage function from EnemyScript
                 enemyScript.TakeDamage(damage);
+            }
+
+            // Destroy the arrow after it hits
+            Destroy(gameObject);
+        }
+
+        // Check if the arrow hit an enemy
+        if (collision.gameObject.CompareTag("ArcherTower"))
+        {
+            // Get the EnemyScript attached to the enemy object
+            archerTowerScript = collision.gameObject.GetComponent<archerTower>();
+
+            if (archerTowerScript != null)
+            {
+                // Call the TakeDamage function from EnemyScript
+                archerTowerScript.TakeDamage(damage);
             }
 
             // Destroy the arrow after it hits

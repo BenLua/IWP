@@ -1,10 +1,8 @@
 TO DO:
 
 Heavy:
-end loop (can end game);
 special enemies can attack towers, use tower spells to heal or boosts towers within range of spell;
-feedback (add clear damage, make sure the user can see that the tower is doing something);
-
 
 Light:
 Tower targeting: Make a list and add gameobjects in order, tower will always target the one at the top of the list, when exit range or die remove self frm list.
+work on Game Graphics and map graphics.

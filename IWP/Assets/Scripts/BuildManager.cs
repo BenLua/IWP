@@ -20,13 +20,30 @@ public class BuildManager : MonoBehaviour
 
     private void Start()
     {
-        towerToBuild = standardTowerPrefab;
+        
     }
 
-    private GameObject towerToBuild;
+    private TowerBluePrint towerToBuild;
 
-    public GameObject GetTowerToBuild()
+    public bool CanBuild { get { return towerToBuild != null; } }
+    public bool HasMoney { get { return PlayerStats.Money >= towerToBuild.cost; } }
+
+    public void BuildTowerOn(Node node)
     {
-        return towerToBuild;
+        //not enough money dont build
+        if (PlayerStats.Money < towerToBuild.cost)
+        {
+            Debug.Log("not enough money" + PlayerStats.Money);
+            return;
+        }
+
+        PlayerStats.Money -= towerToBuild.cost;
+        GameObject tower = Instantiate(towerToBuild.prefab, node.transform.position, node.transform.rotation);
+        node.tower = tower;
+    }
+
+    public void SetTowerToBuild(TowerBluePrint tower)
+    {
+        towerToBuild = tower;
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8305413635748064522}
   - component: {fileID: 2627599648887041019}
   m_Layer: 6
-  m_Name: TempEnemy
+  m_Name: Enemy_Base
   m_TagString: NormalEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,3 +112,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 5
+  OriginalMaterial: {fileID: 2100000, guid: e0210ed3b97e6874db14e9a743239865, type: 2}
+  Red: {fileID: 2100000, guid: 0ba837ec96eb037488ea849d2d0c442b, type: 2}

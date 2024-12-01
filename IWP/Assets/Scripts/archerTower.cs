@@ -8,9 +8,10 @@ public class archerTower : MonoBehaviour
     public Transform shootingPoint;
     public float TowerRange = 10f;
     public LayerMask targetLayer;
-    public GameObject arrowPrefab; 
+    public GameObject arrowPrefab;
     public float ShootingDelay;
     public int shotSpeed = 1000;
+    public int towerHP = 100;
 
     private bool canShoot = true;
 
@@ -37,7 +38,6 @@ public class archerTower : MonoBehaviour
                     nearestDistance = distance;
                 }
             }
-            Debug.Log(nearestCollider.name);
 
             // Shoot at the nearest enemy only if shooting is allowed
             if (canShoot)
@@ -93,5 +93,43 @@ public class archerTower : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(basePoint.position, TowerRange);
+    }
+
+    //Special Feature: if tower is 0 hp the tower will be "DISABLED" until it is "HEALED" or after a period of time has passed======================================================================================
+    //==============================================================================================================================================================================================================
+    //==============================================================================================================================================================================================================
+    public string CheckCurrentState()
+    {
+        float originalRange;
+        originalRange = TowerRange;
+        if (originalRange <= 0)
+        {
+            Debug.Log("Range cannot be changed from 0 to 0");
+            return " ";
+        }
+
+
+        if (towerHP <= 0)
+        {
+            TowerRange = 0;
+            return "dead";
+        }
+        else if (towerHP > 0)
+        {
+            TowerRange = originalRange;
+            return "alive";
+        }
+
+        return " ";
+    }
+
+    public void TakeDamage(int damage)
+    {
+        towerHP -= damage;
+        if (CheckCurrentState() == "dead")
+        {
+            //do code to give visual sign that tower is dead
+            Debug.Log("Tower Dead");
+        }
     }
 }

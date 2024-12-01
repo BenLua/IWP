@@ -48,7 +48,6 @@ public class CameraController : MonoBehaviour
 
         //when not using, mousewheel scrolling = 0;
         float scrolling = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(scrolling);
         Vector3 pos = transform.position;
 
         pos.y -= scrolling * scrollSpeed * Time.deltaTime;

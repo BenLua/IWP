@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1671414962085725057}
   - component: {fileID: 6515488283416947467}
   - component: {fileID: 4072469609548588434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Archer_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4635544307575846471}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.087763265, y: 0.08776326, z: 0.08776326}
   m_ConstrainProportionsScale: 0
@@ -121,7 +121,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: -1
   m_Mesh: {fileID: 4300000, guid: 8cd4e79cb6151cc47aa212dd6604a8fe, type: 3}
 --- !u!114 &4072469609548588434
 MonoBehaviour:
@@ -144,6 +144,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 6186167202758826905, guid: 119985ae06b0fec4b9b3943ca55d60c4, type: 3}
   ShootingDelay: 1
   shotSpeed: 100
+  towerHP: 100
 --- !u!1 &8361964926309144181
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944587407934956041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooting Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8577464628683836192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

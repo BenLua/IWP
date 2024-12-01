@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     private int waypointIndex = 0;
     private Vector3 direction;
 
+    public Material OriginalMaterial;
+    public Material Red;
+
     private void Start()
     {
         target = Waypoints.waypoints[0];
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
         if (waypointIndex >= Waypoints.waypoints.Length - 1)
         {
             Destroy(gameObject);
+            DealDamageToPlayer();
             return;
         }
 
@@ -40,12 +44,44 @@ public class Enemy : MonoBehaviour
         target = Waypoints.waypoints[waypointIndex];
     }
 
+    void DealDamageToPlayer()
+    {
+        PlayerStats.Lives--;
+    }
+
     public void TakeDamage(int damage)
     {
+        // Get the MeshRenderer and store the original material if it's not set
+        MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
+        if (OriginalMaterial == null)
+        {
+            OriginalMaterial = renderer.material;
+        }
+
+        // Decrease health
         health -= damage;
+
+        // Flash the enemy red
+        StartCoroutine(FlashRed(renderer));
+
+        // If health is less than or equal to 0, destroy the enemy
         if (health <= 0)
         {
+            PlayerStats.Money += 50;
             Destroy(gameObject);
         }
+    }
+
+    // Coroutine to handle the flashing effect
+    private IEnumerator FlashRed(MeshRenderer renderer)
+    {
+        // Set the material to red
+        renderer.material = Red;
+
+        // Wait for 0.1 seconds (you can adjust this time to make it faster/slower)
+        yield return new WaitForSeconds(0.1f);
+
+        // Reset the material back to the original one
+        renderer.material = OriginalMaterial;
     }
 }

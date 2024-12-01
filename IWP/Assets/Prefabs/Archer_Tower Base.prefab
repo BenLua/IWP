@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2166934596897162189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Archer_Tower Base
-  m_TagString: Untagged
+  m_TagString: ArcherTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,61 +39,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2166934596897162189}
     m_Modifications:
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08776326
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.08776326
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940396983, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810180850940893591, guid: 2059dd204be7212469a374a746da55ac, type: 3}
-      propertyPath: m_Name
-      value: Archer_Tower
       objectReference: {fileID: 0}
     - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,6 +50,42 @@ PrefabInstance:
     - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005094575363622835, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635544307575846471, guid: 2059dd204be7212469a374a746da55ac, type: 3}
+      propertyPath: m_Name
+      value: Archer_Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2059dd204be7212469a374a746da55ac, type: 3}

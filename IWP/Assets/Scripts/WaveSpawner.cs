@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform baseEnemy;
+    public Transform attackingEnemy;
     public Transform enemySpawn;
     public float timeBetweenWaves = 5f;
     public float countdown = 2f;
     public float enemyCountdown = 0.5f;
+    public TMP_Text WaveText;
 
     private int waveNumber = 0;
 
@@ -34,17 +37,29 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveNumber++;
+        WaveText.text = "WAVES: " + waveNumber.ToString();
 
         for (int i = 0; i < waveNumber; i++)
         {
-            SpawnEnemy();
+            if (waveNumber >= 5)
+            {
+                if (i % 2 == 0)
+                    SpawnEnemy(baseEnemy);
+                else if (i % 2 == 1)
+                    SpawnEnemy(attackingEnemy);
+                else
+                    Debug.LogError("spawning of enemies are not working");
+            }
+            else
+                SpawnEnemy(baseEnemy);
+
             yield return new WaitForSeconds(enemyCountdown);
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(Transform enemy)
     {
-        Instantiate(enemyPrefab, enemySpawn);
+        Instantiate(enemy, enemySpawn);
     }
 
 
