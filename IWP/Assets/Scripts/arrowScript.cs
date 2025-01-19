@@ -31,20 +31,20 @@ public class arrowScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Check if the arrow hit an enemy
-        if (collision.gameObject.CompareTag("ArcherTower"))
-        {
-            // Get the EnemyScript attached to the enemy object
-            archerTowerScript = collision.gameObject.GetComponent<archerTower>();
+        //// Check if the arrow hit an enemy
+        //if (collision.gameObject.CompareTag("ArcherTower"))
+        //{
+        //    // Get the EnemyScript attached to the enemy object
+        //    archerTowerScript = collision.gameObject.GetComponent<archerTower>();
 
-            if (archerTowerScript != null)
-            {
-                // Call the TakeDamage function from EnemyScript
-                archerTowerScript.TakeDamage(damage);
-            }
+        //    if (archerTowerScript != null)
+        //    {
+        //        // Call the TakeDamage function from EnemyScript
+        //        archerTowerScript.TakeDamage(damage);
+        //    }
 
-            // Destroy the arrow after it hits
-            Destroy(gameObject);
-        }
+        //    // Destroy the arrow after it hits
+        //    Destroy(gameObject);
+        //}
     }
 }

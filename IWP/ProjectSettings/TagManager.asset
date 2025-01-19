@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NormalEnemy
   - ArcherTower
+  - Floor
   layers:
   - Default
   - TransparentFX

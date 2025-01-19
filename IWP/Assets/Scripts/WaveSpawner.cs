@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -14,53 +13,48 @@ public class WaveSpawner : MonoBehaviour
     public TMP_Text WaveText;
 
     private int waveNumber = 0;
+    private bool isSpawningWave = false; // Flag to track wave spawning state
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //check when round ends
-        if (countdown <= 0f)
+        // Only proceed if not currently spawning a wave
+        if (!isSpawningWave)
         {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-        }
+            countdown -= Time.deltaTime;
 
-        countdown -= Time.deltaTime;
+            if (countdown <= 0f)
+            {
+                StartCoroutine(SpawnWave());
+                countdown = timeBetweenWaves; // Reset the countdown after the wave finishes
+            }
+        }
     }
 
     IEnumerator SpawnWave()
     {
+        isSpawningWave = true; // Set flag to indicate wave is being spawned
         waveNumber++;
         WaveText.text = "WAVES: " + waveNumber.ToString();
 
         for (int i = 0; i < waveNumber; i++)
         {
+            Transform enemyToSpawn = baseEnemy;
+
+            // Alternate between baseEnemy and attackingEnemy after wave 5
             if (waveNumber >= 5)
             {
-                if (i % 2 == 0)
-                    SpawnEnemy(baseEnemy);
-                else if (i % 2 == 1)
-                    SpawnEnemy(attackingEnemy);
-                else
-                    Debug.LogError("spawning of enemies are not working");
+                enemyToSpawn = (i % 2 == 0) ? baseEnemy : attackingEnemy;
             }
-            else
-                SpawnEnemy(baseEnemy);
 
+            Instantiate(enemyToSpawn, enemySpawn.position, enemySpawn.rotation);
+
+            // Wait before spawning the next enemy
             yield return new WaitForSeconds(enemyCountdown);
         }
+
+        // Wait for the time between waves after all enemies are spawned
+        yield return new WaitForSeconds(timeBetweenWaves);
+
+        isSpawningWave = false; // Reset the flag after the wave is finished
     }
-
-    void SpawnEnemy(Transform enemy)
-    {
-        Instantiate(enemy, enemySpawn);
-    }
-
-
 }
