@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954298861403089043}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bomb_TowerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7651774354313299724, guid: 5611befed9a2ab448bbe09354e49ad6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651774356147524320, guid: 5611befed9a2ab448bbe09354e49ad6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7940137552238127053, guid: 5611befed9a2ab448bbe09354e49ad6b, type: 3}
       propertyPath: m_Name
       value: Bomb_Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940137552238127053, guid: 5611befed9a2ab448bbe09354e49ad6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5611befed9a2ab448bbe09354e49ad6b, type: 3}
