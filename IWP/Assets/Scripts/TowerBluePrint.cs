@@ -8,4 +8,11 @@ public class TowerBluePrint
     public GameObject prefab;
     public int cost;
 
+    public GameObject upgradedTower;
+    public int upgradeCost;
+
+    public int GetSellAmount()
+    {
+        return cost/2;
+    }
 }

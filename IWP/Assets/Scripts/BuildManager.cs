@@ -24,31 +24,56 @@ public class BuildManager : MonoBehaviour
     }
 
     private TowerBluePrint towerToBuild;
+    private Node selectedNode;
+
+    public GameObject Effect;
+
+    public Node_UI nodeUI;
+
+    [HideInInspector]
+    public bool PlayEffect = true;
 
     public bool CanBuild { get { return towerToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= towerToBuild.cost; } }
 
-    public void BuildTowerOn(Node node)
+    public void selectNode(Node node)
     {
-        //not enough money dont build
-        if (PlayerStats.Money < towerToBuild.cost)
+        if (selectedNode == node)
         {
-            Debug.Log("not enough money" + PlayerStats.Money);
+            DeselectNode();
             return;
         }
 
-        PlayerStats.Money -= towerToBuild.cost;
-        GameObject tower = Instantiate(towerToBuild.prefab, node.transform.position, node.transform.rotation);
-        node.tower = tower;
+        selectedNode = node;
+        towerToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode = null;
+
+        nodeUI.Hide();
     }
 
     public void SetTowerToBuild(TowerBluePrint tower)
     {
         towerToBuild = tower;
+        selectedNode = null;
+        PlayEffect = true;
+
+        nodeUI.Hide();
     }
 
     public void SetSpellToActivate(TowerBluePrint tower)
     {
         towerToBuild = tower;
+        PlayEffect = false;
+    }
+
+    public TowerBluePrint GetTowerToBuild()
+    {
+        return towerToBuild;
     }
 }

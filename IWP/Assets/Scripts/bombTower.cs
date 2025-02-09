@@ -9,11 +9,18 @@ public class bombTower: MonoBehaviour
     public float TowerRange = 10f;
     public LayerMask targetLayer;
     public GameObject arrowPrefab;
-    public float ShootingDelay;
     public int shotSpeed;
     public int towerHP = 100;
 
+    public float ShootingDelay;
+    public float OriginalDelay;
+
     private bool canShoot = true;
+
+    private void Start()
+    {
+        OriginalDelay = ShootingDelay;
+    }
 
     void Update()
     {

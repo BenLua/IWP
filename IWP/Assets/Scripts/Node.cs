@@ -7,7 +7,12 @@ public class Node : MonoBehaviour
 {
     public Color hoverColour;
 
-    public GameObject tower;
+    [HideInInspector]
+    public GameObject tower;    
+    [HideInInspector]
+    public TowerBluePrint towerBluePrint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     private Renderer r;
     private Color startColor;
@@ -37,19 +42,82 @@ public class Node : MonoBehaviour
             return;
         }
 
+
+
+        if (tower != null)
+        {
+            buildManager.selectNode(this);
+
+            return;
+        }
+
         if (!buildManager.CanBuild)
         {
             return;
         }
 
-        if (tower != null)
-        {
-            Debug.Log("tower already exists on this node");
+        BuildTower(buildManager.GetTowerToBuild());
+    }
 
-            return;        
+    void BuildTower(TowerBluePrint blueprint)
+    {
+        //not enough money dont build
+        if (PlayerStats.Money < blueprint.cost)
+        {
+            Debug.Log("not enough money" + PlayerStats.Money);
+            return;
         }
 
-        buildManager.BuildTowerOn(this);
+        PlayerStats.Money -= blueprint.cost;
+        GameObject t = Instantiate(blueprint.prefab, transform.position, transform.rotation);
+        tower = t;
+
+        if (buildManager.PlayEffect)
+        {
+            GameObject effect = (GameObject)Instantiate(buildManager.Effect, transform.position, transform.rotation);
+            Destroy(effect, 4f);
+        }
+
+        towerBluePrint = blueprint;
+        isUpgraded = false;
+    }
+
+    public void UpgradeTower()
+    {
+        //not enough money dont build
+        if (PlayerStats.Money < towerBluePrint.upgradeCost)
+        {
+            Debug.Log("not enough money to upgrade");
+            return;
+        }
+
+        PlayerStats.Money -= towerBluePrint.upgradeCost;
+        Destroy(tower);
+
+        GameObject t = Instantiate(towerBluePrint.upgradedTower, transform.position, transform.rotation);
+        tower = t;
+
+        if (buildManager.PlayEffect)
+        {
+            GameObject effect = (GameObject)Instantiate(buildManager.Effect, transform.position, transform.rotation);
+            Destroy(effect, 4f);
+        }
+
+        isUpgraded = true;
+    }
+
+    public void SellTower()
+    {
+        PlayerStats.Money += towerBluePrint.GetSellAmount();
+
+        if (buildManager.PlayEffect)
+        {
+            GameObject effect = (GameObject)Instantiate(buildManager.Effect, transform.position, transform.rotation);
+            Destroy(effect, 4f);
+        }
+
+        Destroy(tower);
+        towerBluePrint = null;
     }
 
     void OnMouseEnter()

@@ -6,6 +6,7 @@ public class BoostSpell : MonoBehaviour
 {
     public LayerMask TowerLayer;
     private archerTower archerTowerScript;
+    private bombTower bombTowerScript;
 
     private int spellRange = 15;
     private bool canShoot;
@@ -29,8 +30,21 @@ public class BoostSpell : MonoBehaviour
             foreach (Collider collider in collidersInRange)
             {
                 archerTowerScript = collider.GetComponent<archerTower>();
-                if (canShoot)
-                    StartCoroutine(BoostShootingSpeed());
+                bombTowerScript = collider.GetComponent<bombTower>();
+                if (archerTowerScript != null)
+                {
+                    if (canShoot)
+                        StartCoroutine(BoostShootingSpeed());
+                }
+                else if (bombTowerScript != null)
+                {
+                    if (canShoot)
+                        StartCoroutine(BoostBombShootingSpeed());
+                }
+                else
+                {
+                    Debug.LogError("No TowerScript Withion Range");
+                }
             }
         }
         else
@@ -43,16 +57,25 @@ public class BoostSpell : MonoBehaviour
     {
         canShoot = false;
 
-        float originalShotDelay;
-
-        originalShotDelay = archerTowerScript.ShootingDelay;
-        archerTowerScript.ShootingDelay = archerTowerScript.ShootingDelay / boostEffect;
-        Debug.Log(originalShotDelay + " " + archerTowerScript.ShootingDelay);
+        archerTowerScript.ShootingDelay = archerTowerScript.OriginalDelay / boostEffect;
         
 
         yield return new WaitForSeconds(spellDuration);
+        archerTowerScript.ShootingDelay = archerTowerScript.OriginalDelay;
+        
+        Destroy(gameObject);
+    }
 
-        archerTowerScript.ShootingDelay = originalShotDelay;
+    private IEnumerator BoostBombShootingSpeed()
+    {
+        canShoot = false;
+
+        bombTowerScript.ShootingDelay = bombTowerScript.OriginalDelay / boostEffect;
+
+
+        yield return new WaitForSeconds(spellDuration);
+        bombTowerScript.ShootingDelay = bombTowerScript.OriginalDelay;
+
         Destroy(gameObject);
     }
 

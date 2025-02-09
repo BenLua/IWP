@@ -9,11 +9,18 @@ public class archerTower : MonoBehaviour
     public float TowerRange = 10f;
     public LayerMask targetLayer;
     public GameObject arrowPrefab;
-    public float ShootingDelay;
     public int shotSpeed;
     public int towerHP = 100;
 
     private bool canShoot = true;
+
+    public float ShootingDelay;
+    public float OriginalDelay;
+
+    void Start()
+    {
+        OriginalDelay = ShootingDelay;
+    }
 
     void Update()
     {
