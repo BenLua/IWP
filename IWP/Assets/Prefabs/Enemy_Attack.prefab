@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  speed: 15
+  speed: 10
   OriginalMaterial: {fileID: 2100000, guid: cce8dda5be1883a419a961e20caecd65, type: 2}
   Red: {fileID: 2100000, guid: 0ba837ec96eb037488ea849d2d0c442b, type: 2}
 --- !u!114 &80243056604405056
